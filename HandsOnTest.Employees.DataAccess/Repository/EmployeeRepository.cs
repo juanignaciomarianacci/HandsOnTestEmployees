@@ -8,17 +8,16 @@ namespace HandsOnTest.Employees.DataAccess.Repository
 {
     public class EmployeeRepository : BaseRepository, IEmployeeRepository
     {
-        public IEnumerable<Employee> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployees()
         {
-            return GetAsync<IEnumerable<Employee>>("employees").Result;
+            return await GetAsync<IEnumerable<Employee>>("employees");
         }
 
-        public Employee GetEmployeeById(int employeeId)
+        public async Task<Employee> GetEmployeeById(int employeeId)
         {
-            return Task.Run(() => GetAsync<IEnumerable<Employee>>("employees"))
-                .Result
-                .Where(e => e.Id == employeeId)
-                .SingleOrDefault();
+            var employees = await GetAsync<IEnumerable<Employee>>("employees");
+
+            return employees.Where(e => e.Id == employeeId).SingleOrDefault();
         }
     }
 }

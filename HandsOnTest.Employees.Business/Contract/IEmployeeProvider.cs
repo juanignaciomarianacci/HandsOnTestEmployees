@@ -6,8 +6,8 @@ namespace HandsOnTest.Employees.Business.Contract
 {
     public interface IEmployeeProvider
     {
-        IEnumerable<EmployeeDto> GetEmployees();
+        Task<IEnumerable<EmployeeDto>> GetEmployees();
 
-        EmployeeDto GetEmployeeById(int employeeId);
+        Task<EmployeeDto> GetEmployeeById(int employeeId);
     }
 }

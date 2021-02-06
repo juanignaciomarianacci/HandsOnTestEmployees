@@ -1,5 +1,6 @@
 ﻿using HandsOnTest.Employees.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace HandsOnTest.Employees.WebApi.Controllers
 {
@@ -15,16 +16,16 @@ namespace HandsOnTest.Employees.WebApi.Controllers
 
         // GET api/employee
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_employeeService.GetEmployees());
+            return Ok(await _employeeService.GetEmployees());
         }
 
         // GET api/employee/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var employee = _employeeService.GetEmployeeById(id);
+            var employee = await _employeeService.GetEmployeeById(id);
 
             if (employee!=null)
                 return Ok(employee);

@@ -1,6 +1,7 @@
 ﻿using HandsOnTest.Employees.Business.Contract;
 using HandsOnTest.Employees.Business.Dto;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HandsOnTest.Employees.Service
 {
@@ -13,14 +14,14 @@ namespace HandsOnTest.Employees.Service
             _employeeProvider = employeeProvider;
         }
 
-        public IEnumerable<EmployeeDto> GetEmployees()
+        public async Task<IEnumerable<EmployeeDto>> GetEmployees()
         {
-            return _employeeProvider.GetEmployees();
+            return await _employeeProvider.GetEmployees();
         }
 
-        public EmployeeDto GetEmployeeById(int employeeId)
+        public async Task<EmployeeDto> GetEmployeeById(int employeeId)
         {
-            return _employeeProvider.GetEmployeeById(employeeId);
+            return await _employeeProvider.GetEmployeeById(employeeId);
         }
     }
 }

@@ -6,8 +6,8 @@ namespace HandsOnTest.Employees.DataAccess.Repository.Contract
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> GetEmployees();
+        Task<IEnumerable<Employee>> GetEmployees();
 
-        Employee GetEmployeeById(int employeeId);
+        Task<Employee> GetEmployeeById(int employeeId);
     }
 }

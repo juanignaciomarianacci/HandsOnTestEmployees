@@ -3,6 +3,7 @@ using HandsOnTest.Employees.Business.Dto;
 using HandsOnTest.Employees.DataAccess.Repository.Contract;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace HandsOnTest.Employees.Business
 {
@@ -17,16 +18,16 @@ namespace HandsOnTest.Employees.Business
             _employeeFactory = employeeFactory;
         }
 
-        public IEnumerable<EmployeeDto> GetEmployees()
+        public async Task<IEnumerable<EmployeeDto>> GetEmployees()
         {
-            var employees = _employeeRepository.GetEmployees();
+            var employees = await _employeeRepository.GetEmployees();
             
             return employees.Select(e => _employeeFactory.Create(e));
         }
 
-        public EmployeeDto GetEmployeeById(int employeeId)
+        public async Task<EmployeeDto> GetEmployeeById(int employeeId)
         {
-            var employee = _employeeRepository.GetEmployeeById(employeeId);
+            var employee = await _employeeRepository.GetEmployeeById(employeeId);
             
             return _employeeFactory.Create(employee);
         }
