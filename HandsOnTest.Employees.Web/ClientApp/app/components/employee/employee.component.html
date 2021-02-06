@@ -1,8 +1,7 @@
 ﻿<h1>Employees annual salaries</h1>
 
-<p>This component shows annual salaries for the given employees.</p>
+<p>This component shows the annual salaries for the given employees.</p>
 <div style="padding-top: 20px; padding-bottom: 10px;">
-    <label for="employeeId">Employee Id</label>
     <input type="text" #idValue class="form-control" id="employeeId" aria-describedby="idHelp" placeholder="Enter employee Id" style="width:200px; display:inline">
     <button type="button" (click)="getEmployees(idValue.value)" class="btn btn-primary">Get Employees</button>
 </div>
