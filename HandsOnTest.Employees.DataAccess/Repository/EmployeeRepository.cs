@@ -8,6 +8,10 @@ namespace HandsOnTest.Employees.DataAccess.Repository
 {
     public class EmployeeRepository : BaseRepository, IEmployeeRepository
     {
+        public EmployeeRepository(IBaseRepository repository) : base(repository)
+        {
+        }
+
         public async Task<IEnumerable<Employee>> GetEmployees()
         {
             return await GetAsync<IEnumerable<Employee>>("employees");

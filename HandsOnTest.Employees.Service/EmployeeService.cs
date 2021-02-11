@@ -14,14 +14,14 @@ namespace HandsOnTest.Employees.Service
             _employeeProvider = employeeProvider;
         }
 
-        public async Task<IEnumerable<EmployeeDto>> GetEmployees()
+        public Task<IEnumerable<EmployeeDto>> GetEmployees()
         {
-            return await _employeeProvider.GetEmployees();
+            return _employeeProvider.GetEmployees();
         }
 
-        public async Task<EmployeeDto> GetEmployeeById(int employeeId)
+        public Task<EmployeeDto> GetEmployeeById(int employeeId)
         {
-            return await _employeeProvider.GetEmployeeById(employeeId);
+            return _employeeProvider.GetEmployeeById(employeeId);
         }
     }
 }

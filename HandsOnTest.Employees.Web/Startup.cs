@@ -27,6 +27,8 @@ namespace HandsOnTest.Employees.Web
             services.AddScoped<IEmployeeProvider, EmployeeProvider>();
             services.AddScoped<IEmployeeFactory, EmployeeFactory>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            // Change this configuration for using a different kind of repository
+            services.AddScoped<IBaseRepository, HttpBaseRepository>();
             services.AddScoped<HourlySalaryCalculator>();
             services.AddScoped<MonthlySalaryCalculator>();
 
